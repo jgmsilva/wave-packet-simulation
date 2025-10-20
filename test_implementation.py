@@ -2,8 +2,8 @@ import numpy as np
 import scipy.sparse as sp
 import matplotlib.pyplot as plt
 
-J, dx, dt, steps = 800, 0.1, 5e-6, 16e6 #world parameters
-bdist_pts, width_pts, V0 = 50, 10, 0.3 #semi-transparent barriers
+J, dx, dt, steps = 800, 0.1, 5e-6, 32000000 #world parameters
+bdist_pts, width_pts, V0 = 50, 10, 0.9 #semi-transparent barriers
 
 N = 2*J+1
 x = dx*np.arange(-J, J+1)
@@ -49,7 +49,7 @@ plt.show()
 
 print(f"final norm: {np.sum(np.abs(psi)**2)*dx}")
 
-np.savetxt("base_pin16.csv",
+np.savetxt("base_pin32.csv",
            np.column_stack([t, Pin]),
            delimiter=",",
            header="t,Pin",
